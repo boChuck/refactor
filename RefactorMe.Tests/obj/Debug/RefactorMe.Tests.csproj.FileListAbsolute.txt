@@ -7,3 +7,12 @@ C:\Projects\C#\RefactorMe.Tests\bin\Debug\RefactorMe.pdb
 C:\Projects\C#\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.csprojResolveAssemblyReference.cache
 C:\Projects\C#\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.dll
 C:\Projects\C#\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.pdb
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.Tests.dll
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.Tests.pdb
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.dll
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.DontRefactor.dll
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.DontRefactor.pdb
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.pdb
+C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.csprojResolveAssemblyReference.cache
+C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.dll
+C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.pdb
