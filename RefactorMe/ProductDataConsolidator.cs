@@ -32,16 +32,16 @@ namespace RefactorMe
             return ps;
         }
 
-        static void CollectProducts(List<Product> ps, Currency currency)
+        static void CollectProducts(List<Product> ps, ICurrency currency)
         {
             var lawnmoverDB = new LawnmowerRepository();
-            var lawnmoverController = new LawnmoverController(ps, currency, (IReadOnlyRepository<LawnmowerRepository>)lawnmoverDB);
+            var lawnmoverController = new LawnmoverController(ps, currency, lawnmoverDB);
             lawnmoverController.Add();
             var phoneCaseDB = new PhoneCaseRepository();
-            var phoneCaseController = new PhoneCaseController(ps, currency, (IReadOnlyRepository<PhoneCaseRepository>)phoneCaseDB);
+            var phoneCaseController = new PhoneCaseController(ps, currency, phoneCaseDB);
             phoneCaseController.Add();
             var tshirtDB = new TShirtRepository();
-            var tShirtController = new TShirtController(ps, currency, (IReadOnlyRepository<TShirtRepository>)tshirtDB);
+            var tShirtController = new TShirtController(ps, currency, tshirtDB);
             tShirtController.Add();
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RefactorMe
 {
-    class RateUS : Currency 
+    public class RateUS : Currency 
     {
         public override double GetRate()
         {

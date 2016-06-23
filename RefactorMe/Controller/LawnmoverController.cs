@@ -13,18 +13,22 @@ namespace RefactorMe
 {
     public class LawnmoverController : IProductController
     {
-        public IQueryable<Lawnmower> lawnmovers;
-        LawnmowerRepository lr;
-        public ICurrency iCurrency;
-        public List<Product> ps;
+        public IQueryable<Lawnmower> lawnmovers { get; set; }
+        LawnmowerRepository lr { get; set; }
+        public ICurrency iCurrency { get; set; }
+        public List<Product> ps { get; set; }
 
 
-        public LawnmoverController(List<Product> products, ICurrency currency, IReadOnlyRepository<LawnmowerRepository> lr)
+        public LawnmoverController(List<Product> products, ICurrency currency, IReadOnlyRepository<Lawnmower> lr)
         {
             ps = products;
             iCurrency = currency;
             this.lr = (LawnmowerRepository)lr;
             lawnmovers = this.lr.GetAll();
+        }
+
+        public LawnmoverController()
+        {
         }
 
         public string GetProductType()

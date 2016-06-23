@@ -16,3 +16,5 @@ C:\Projects\refactor\RefactorMe.Tests\bin\Debug\RefactorMe.pdb
 C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.csprojResolveAssemblyReference.cache
 C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.dll
 C:\Projects\refactor\RefactorMe.Tests\obj\Debug\RefactorMe.Tests.pdb
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\nunit.framework.dll
+C:\Projects\refactor\RefactorMe.Tests\bin\Debug\nunit.framework.xml

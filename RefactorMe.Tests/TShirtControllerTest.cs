@@ -1,53 +1,55 @@
 ﻿using System;
 using NUnit.Framework;
+using NUnit.VisualStudio.TestAdapter;
 using RefactorMe.DontRefactor.Models;
+using System.Collections.Generic;
 using RefactorMe.DontRefactor.Data.Implementation;
 using RefactorMe.Tests.Helper;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace RefactorMe.Tests
 {
     [TestFixture]
-    public class PhoneCaseControllerTest
+    public class TShirtControllerTest
     {
         [Test]
-        public void CanCreatePhoneCaseConstruct()
+        public void CanCreateTShirtConstruct()
         {
             // Arrange
             var ps = new List<Product>();
             var currency = new Currency();
 
 
-            var pr = new PhoneCaseRepository();
+            var tr = new TShirtRepository();
 
             // Act
-            var controller = new PhoneCaseController(ps, currency, pr);
+            var controller = new TShirtController(ps, currency, tr);
             // Assert
 
             Assert.AreEqual(ps, controller.ps);
             Assert.AreEqual(currency, controller.iCurrency);
-            CollectionAssert.AllItemsAreInstancesOfType(ps, typeof(Lawnmower));
-            CollectionAssert.AreEqual(pr.GetAll().ToList(), controller.PhoneCases, new PhoneCaseComparer());
+            CollectionAssert.AllItemsAreInstancesOfType(ps, typeof(TShirt));
+            CollectionAssert.AreEqual(tr.GetAll().ToList(), controller.tshirts, new TShirtComparer());
         }
 
         [TestCase(null, typeof(NullReferenceException))]
-        public void CannotCreateTShirtConstruct(PhoneCaseRepository arg, Type expectedException)
+        public void CannotCreateTShirtConstruct(TShirtRepository arg, Type expectedException)
         {
             // Arrange Act Assert
-            Assert.Throws(expectedException, () => new PhoneCaseController(null, null, arg));
+            Assert.Throws(expectedException, () => new TShirtController(null, null, arg));
         }
 
         [Test]
         public void GetProductTypeTest()
         {
             // Arrange
-            var pr = new PhoneCaseRepository();
-            var controller = new PhoneCaseController(null, null, pr);
+            var tr = new TShirtRepository();
+            var controller = new TShirtController(null, null, tr);
             // Act
             string type = controller.GetProductType();
             // Assert
-            Assert.AreEqual("Phone Case", type);
+
+            Assert.AreEqual("T-Shirt", type);
         }
     }
 }

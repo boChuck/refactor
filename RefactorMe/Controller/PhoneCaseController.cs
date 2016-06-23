@@ -13,12 +13,12 @@ namespace RefactorMe
 {
    public class PhoneCaseController : IProductController
     {
-        public IQueryable<PhoneCase> PhoneCases;
-        PhoneCaseRepository pcr;
-        public ICurrency iCurrency;
-        public List<Product> ps;
+        public IQueryable<PhoneCase> PhoneCases { get; set; }
+        PhoneCaseRepository pcr { get; set; }
+        public ICurrency iCurrency { get; set; }
+        public List<Product> ps { get; set; }
 
-        public PhoneCaseController(List<Product> products, ICurrency currency, IReadOnlyRepository<PhoneCaseRepository> pcr)
+        public PhoneCaseController(List<Product> products, ICurrency currency, IReadOnlyRepository<PhoneCase> pcr)
         {
             ps = products;
             iCurrency = currency;

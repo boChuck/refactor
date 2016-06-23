@@ -14,12 +14,12 @@ namespace RefactorMe
    public class TShirtController : IProductController
     {
 
-        IQueryable<TShirt> tshirts;
-        TShirtRepository tr;
-        public ICurrency iCurrency;
-        public List<Product> ps;
+        public IQueryable<TShirt> tshirts { get; set; }
+        TShirtRepository tr { get; set; }
+        public ICurrency iCurrency { get; set; }
+        public List<Product> ps { get; set; }
 
-        public TShirtController(List<Product> products, ICurrency currency, IReadOnlyRepository<TShirtRepository> tr)
+        public TShirtController(List<Product> products, ICurrency currency, IReadOnlyRepository<TShirt> tr)
         {
             ps = products;
             iCurrency = currency;
