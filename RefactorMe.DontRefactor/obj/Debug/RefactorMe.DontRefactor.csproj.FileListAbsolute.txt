@@ -1,0 +1,5 @@
+C:\Projects\C#\RefactorMe.DontRefactor\bin\Debug\RefactorMe.DontRefactor.dll
+C:\Projects\C#\RefactorMe.DontRefactor\bin\Debug\RefactorMe.DontRefactor.pdb
+C:\Projects\C#\RefactorMe.DontRefactor\obj\Debug\RefactorMe.DontRefactor.csprojResolveAssemblyReference.cache
+C:\Projects\C#\RefactorMe.DontRefactor\obj\Debug\RefactorMe.DontRefactor.dll
+C:\Projects\C#\RefactorMe.DontRefactor\obj\Debug\RefactorMe.DontRefactor.pdb
