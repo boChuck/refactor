@@ -27,7 +27,10 @@ namespace RefactorMe
             tshirts = this.tr.GetAll();
         }
 
+        public TShirtController()
+        {
 
+        }
         public string GetProductType()
         {
             return "T-Shirt";

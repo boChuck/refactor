@@ -49,5 +49,25 @@ namespace RefactorMe.Tests
             // Assert
             Assert.AreEqual("Phone Case", type);
         }
+        [Test]
+        public void AddTest()
+        {
+            // Arrange
+            var controller = new PhoneCaseController
+            {
+                iCurrency = new Currency(),
+                PhoneCases = new PhoneCaseRepository().GetAll(),
+                ps = new List<Product>()
+            };
+
+
+            // Act
+            controller.Add();
+
+            // Assert
+            CollectionAssert.AllItemsAreInstancesOfType(controller.ps, typeof(Product));
+            Assert.AreEqual(2, controller.ps.ToList().Count);
+            controller.ps.ToList().ForEach(i => Assert.AreEqual("Phone Case", i.Type));
+        }
     }
 }

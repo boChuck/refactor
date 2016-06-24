@@ -26,6 +26,10 @@ namespace RefactorMe
             PhoneCases = this.pcr.GetAll();
         }
 
+        public PhoneCaseController()
+        {
+
+        }
         public string GetProductType()
         {
             return "Phone Case";

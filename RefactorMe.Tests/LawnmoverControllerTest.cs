@@ -82,6 +82,7 @@ namespace RefactorMe.Tests
             // Assert
             CollectionAssert.AllItemsAreInstancesOfType(controller.ps, typeof(Product));
             Assert.AreEqual(3, controller.ps.ToList().Count);
+            controller.ps.ToList().ForEach(i => Assert.AreEqual("Lawnmower", i.Type ));
         }
     }
 }
