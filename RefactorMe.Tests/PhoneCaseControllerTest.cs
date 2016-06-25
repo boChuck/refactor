@@ -15,27 +15,20 @@ namespace RefactorMe.Tests
         public void CanCreatePhoneCaseConstruct()
         {
             // Arrange
-            var ps = new List<Product>();
-            var currency = new Currency();
-
-
-            var pr = new PhoneCaseRepository();
+         
 
             // Act
-            var controller = new PhoneCaseController(ps, currency, pr);
+           
             // Assert
 
-            Assert.AreEqual(ps, controller.ps);
-            Assert.AreEqual(currency, controller.iCurrency);
-            CollectionAssert.AllItemsAreInstancesOfType(ps, typeof(Lawnmower));
-            CollectionAssert.AreEqual(pr.GetAll().ToList(), controller.PhoneCases, new PhoneCaseComparer());
+       
         }
 
         [TestCase(null, typeof(NullReferenceException))]
         public void CannotCreateTShirtConstruct(PhoneCaseRepository arg, Type expectedException)
         {
             // Arrange Act Assert
-            Assert.Throws(expectedException, () => new PhoneCaseController(null, null, arg));
+            Assert.Throws(expectedException, () => new PhoneCaseController( null, arg));
         }
 
         [Test]
@@ -43,7 +36,7 @@ namespace RefactorMe.Tests
         {
             // Arrange
             var pr = new PhoneCaseRepository();
-            var controller = new PhoneCaseController(null, null, pr);
+            var controller = new PhoneCaseController(null, pr);
             // Act
             string type = controller.GetProductType();
             // Assert
@@ -53,21 +46,14 @@ namespace RefactorMe.Tests
         public void AddTest()
         {
             // Arrange
-            var controller = new PhoneCaseController
-            {
-                iCurrency = new Currency(),
-                PhoneCases = new PhoneCaseRepository().GetAll(),
-                ps = new List<Product>()
-            };
+            
 
 
             // Act
-            controller.Add();
+           
 
             // Assert
-            CollectionAssert.AllItemsAreInstancesOfType(controller.ps, typeof(Product));
-            Assert.AreEqual(2, controller.ps.ToList().Count);
-            controller.ps.ToList().ForEach(i => Assert.AreEqual("Phone Case", i.Type));
+         
         }
     }
 }

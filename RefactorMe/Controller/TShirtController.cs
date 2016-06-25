@@ -14,17 +14,14 @@ namespace RefactorMe
    public class TShirtController : IProductController
     {
 
-        public IQueryable<TShirt> tshirts { get; set; }
-        TShirtRepository tr { get; set; }
-        public ICurrency iCurrency { get; set; }
-        public List<Product> ps { get; set; }
+        readonly IReadOnlyRepository<TShirt> _repository;
+        readonly ICurrency _currency;
 
-        public TShirtController(List<Product> products, ICurrency currency, IReadOnlyRepository<TShirt> tr)
+
+        public TShirtController( ICurrency currency, IReadOnlyRepository<TShirt> tr)
         {
-            ps = products;
-            iCurrency = currency;
-            this.tr = (TShirtRepository)tr;
-            tshirts = this.tr.GetAll();
+            _currency = currency;
+            _repository = tr;
         }
 
         public TShirtController()
@@ -35,17 +32,17 @@ namespace RefactorMe
         {
             return "T-Shirt";
         }
-        public void Add()
+        public IEnumerable<Product> GetCurrencyConvertedItems()
         {
-            foreach (var i in tshirts)
+            foreach (var i in _repository.GetAll())
             {
-                ps.Add(new Product
+                yield return new Product
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Price = i.Price * iCurrency.GetRate(),
+                    Price = _currency.ConvertPrice(i.Price),
                     Type = GetProductType()
-                });
+                };
             }
         }
     }

@@ -13,22 +13,14 @@ namespace RefactorMe
 {
     public class LawnmoverController : IProductController
     {
-        public IQueryable<Lawnmower> lawnmovers { get; set; }
-        LawnmowerRepository lr { get; set; }
-        public ICurrency iCurrency { get; set; }
-        public List<Product> ps { get; set; }
+        readonly IReadOnlyRepository<Lawnmower> _repository;
+        readonly ICurrency _currency;
 
 
-        public LawnmoverController(List<Product> products, ICurrency currency, IReadOnlyRepository<Lawnmower> lr)
+        public LawnmoverController(ICurrency currency, IReadOnlyRepository<Lawnmower> lr)
         {
-            ps = products;
-            iCurrency = currency;
-            this.lr = (LawnmowerRepository)lr;
-            lawnmovers = this.lr.GetAll();
-        }
-
-        public LawnmoverController()
-        {
+            _currency = currency;
+            _repository = lr;
         }
 
         public string GetProductType()
@@ -36,17 +28,17 @@ namespace RefactorMe
             return "Lawnmower";
         }
 
-        public void Add()
+        public IEnumerable<Product> GetCurrencyConvertedItems()
         {
-            foreach (var i in lawnmovers)
+            foreach (var i in _repository.GetAll())
             {
-                ps.Add(new Product
+                yield return new Product
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Price = i.Price * iCurrency.GetRate(),
+                    Price = _currency.ConvertPrice(i.Price),
                     Type = GetProductType()
-                });
+                };
             }
         }
     }

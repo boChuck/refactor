@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bindings.cs" />
+    <Compile Include="Controller\IProductCollector.cs" />
     <Compile Include="Controller\IProductController.cs" />
-    <Compile Include="ExchangeRate\Currency.cs" />
+    <Compile Include="Controller\ProductCollector.cs" />
+    <Compile Include="ExchangeRate\NormalRate.cs" />
     <Compile Include="Controller\LawnmoverController.cs" />
     <Compile Include="Controller\PhoneCaseController.cs" />
     <Compile Include="ExchangeRate\ICurrency.cs" />
@@ -58,6 +65,9 @@
       <Project>{c487cdca-8441-4e18-96b8-21ca60f766e0}</Project>
       <Name>RefactorMe.DontRefactor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RefactorMe.ExchangeRate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace RefactorMe
 {
-    public class RateUS : Currency 
+    public class RateUS : ICurrency
     {
-        public override double GetRate()
+        public double ConvertPrice(double price)
         {
-            return 0.76;
+            return price * 0.76;
         }
     }
 }

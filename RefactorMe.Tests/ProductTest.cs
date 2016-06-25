@@ -14,21 +14,13 @@ namespace RefactorMe.Tests.Helper
         public void AddTest( Type cls, string type )
         {
             // Arrange
-            var controller = new TShirtController
-            {
-                iCurrency = new Currency(),
-                tshirts = new TShirtRepository().GetAll(),
-                ps = new List<Product>()
-            };
-
+           
 
             // Act
-            controller.Add();
+          
 
             // Assert
-            CollectionAssert.AllItemsAreInstancesOfType(controller.ps, typeof(Product));
-            Assert.AreEqual(2, controller.ps.ToList().Count);
-            controller.ps.ToList().ForEach(i => Assert.AreEqual(type, i.Type));
+          
         }
     }
 }

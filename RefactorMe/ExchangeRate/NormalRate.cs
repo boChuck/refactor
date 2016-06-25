@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace RefactorMe
 {
-    public class Currency : ICurrency
+    public class NormalRate : ICurrency
     {
-       public virtual double GetRate()
+        public double ConvertPrice(double price)
         {
-            return 1;
+            return price * 1;
         }
     }
 }

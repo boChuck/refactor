@@ -13,39 +13,38 @@ namespace RefactorMe
 {
    public class PhoneCaseController : IProductController
     {
-        public IQueryable<PhoneCase> PhoneCases { get; set; }
-        PhoneCaseRepository pcr { get; set; }
-        public ICurrency iCurrency { get; set; }
-        public List<Product> ps { get; set; }
+        readonly IReadOnlyRepository<PhoneCase> _repository;
+        readonly ICurrency _currency;
 
-        public PhoneCaseController(List<Product> products, ICurrency currency, IReadOnlyRepository<PhoneCase> pcr)
+        public PhoneCaseController(ICurrency currency, IReadOnlyRepository<PhoneCase> pcr)
         {
-            ps = products;
-            iCurrency = currency;
-            this.pcr = (PhoneCaseRepository)pcr;
-            PhoneCases = this.pcr.GetAll();
+
+            _currency = currency;
+            _repository = pcr;
+           
         }
 
         public PhoneCaseController()
         {
 
         }
+
         public string GetProductType()
         {
             return "Phone Case";
         }
 
-        public void Add()
+        public IEnumerable<Product> GetCurrencyConvertedItems()
         {
-            foreach (var i in PhoneCases)
+            foreach (var i in _repository.GetAll())
             {
-                ps.Add(new Product
+                yield return new Product
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Price = i.Price * iCurrency.GetRate(),
+                    Price = _currency.ConvertPrice(i.Price),
                     Type = GetProductType()
-                });
+                };
             }
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using NUnit.VisualStudio.TestAdapter;
 using RefactorMe.DontRefactor.Models;
 using System.Collections.Generic;
 using RefactorMe.DontRefactor.Data.Implementation;
@@ -16,27 +15,22 @@ namespace RefactorMe.Tests
         public void CanCreateTShirtConstruct()
         {
             // Arrange
-            var ps = new List<Product>();
-            var currency = new Currency();
+          
 
-
-            var tr = new TShirtRepository();
+  
 
             // Act
-            var controller = new TShirtController(ps, currency, tr);
+          
             // Assert
 
-            Assert.AreEqual(ps, controller.ps);
-            Assert.AreEqual(currency, controller.iCurrency);
-            CollectionAssert.AllItemsAreInstancesOfType(ps, typeof(TShirt));
-            CollectionAssert.AreEqual(tr.GetAll().ToList(), controller.tshirts, new TShirtComparer());
+        
         }
 
         [TestCase(null, typeof(NullReferenceException))]
         public void CannotCreateTShirtConstruct(TShirtRepository arg, Type expectedException)
         {
             // Arrange Act Assert
-            Assert.Throws(expectedException, () => new TShirtController(null, null, arg));
+            Assert.Throws(expectedException, () => new TShirtController(null, arg));
         }
 
         [Test]
@@ -44,7 +38,7 @@ namespace RefactorMe.Tests
         {
             // Arrange
             var tr = new TShirtRepository();
-            var controller = new TShirtController(null, null, tr);
+            var controller = new TShirtController( null, tr);
             // Act
             string type = controller.GetProductType();
             // Assert
@@ -56,21 +50,13 @@ namespace RefactorMe.Tests
         public void AddTest()
         {
             // Arrange
-            var controller = new TShirtController
-            {
-                iCurrency = new Currency(),
-                tshirts = new TShirtRepository().GetAll(),
-                ps = new List<Product>()
-            };
-
+           
 
             // Act
-            controller.Add();
+          
 
             // Assert
-            CollectionAssert.AllItemsAreInstancesOfType(controller.ps, typeof(Product));
-            Assert.AreEqual(2, controller.ps.ToList().Count);
-            controller.ps.ToList().ForEach(i => Assert.AreEqual("T-Shirt", i.Type));
+          
         }
     }
 }

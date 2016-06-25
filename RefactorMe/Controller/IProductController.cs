@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RefactorMe.DontRefactor.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace RefactorMe.Controller
 {
    public interface IProductController
     {
-       void Add();
        string GetProductType();
+       IEnumerable<Product> GetCurrencyConvertedItems();
     }
 }
