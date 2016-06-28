@@ -9,5 +9,6 @@ namespace RefactorMe.ExchangeRate
     public interface ICurrency
     {
        double ConvertPrice(double price);
+       double GetRate();
     }
 }

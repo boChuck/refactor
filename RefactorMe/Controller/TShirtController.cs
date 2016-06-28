@@ -24,10 +24,7 @@ namespace RefactorMe
             _repository = tr;
         }
 
-        public TShirtController()
-        {
-
-        }
+       
         public string GetProductType()
         {
             return "T-Shirt";

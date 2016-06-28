@@ -76,16 +76,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Helper\Comparer.cs" />
-    <Compile Include="Helper\TShirtComparer.cs" />
-    <Compile Include="Helper\PhoneCaseComparer.cs" />
-    <Compile Include="Helper\LawnmoverComparer.cs" />
-    <Compile Include="ProductTest.cs" />
+    <Compile Include="Bindings.cs" />
+    <Compile Include="Helper\EUROPriceComparer.cs" />
+    <Compile Include="Helper\NormalPriceComparer.cs" />
+    <Compile Include="Helper\PriceComparer.cs" />
+    <Compile Include="Helper\USPriceComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductDataConsolidatorTest.cs" />
     <Compile Include="LawnmoverControllerTest.cs" />
     <Compile Include="PhoneCaseControllerTest.cs" />
+    <Compile Include="TestBase.cs" />
     <Compile Include="TShirtControllerTest.cs" />
+    <Compile Include="ProductCollectorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RefactorMe.DontRefactor\RefactorMe.DontRefactor.csproj">

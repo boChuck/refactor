@@ -1,45 +1,27 @@
 ﻿using System;
-using RefactorMe;
-using RefactorMe.DontRefactor.Models;
-using System.Collections.Generic;
-using RefactorMe.DontRefactor.Data.Implementation;
-using System.Linq;
-using RefactorMe.DontRefactor.Data;
 using NUnit.Framework;
-using System.Collections;
+using RefactorMe.DontRefactor.Models;
+using RefactorMe.DontRefactor.Data.Implementation;
 using RefactorMe.Tests.Helper;
+using System.Linq;
+using System.Collections.Generic;
+using Ninject;
+using Ninject.Parameters;
+using RefactorMe.ExchangeRate;
 
 namespace RefactorMe.Tests
 {
     [TestFixture]
-    public class LawnmoverControllerTest
+    public class LawnmoverControllerTest : TestBase
     {
-        [Test]
-        public void CanCreateLawnmoverConstruct()
-        {
-            // Arrange
-           
-
-            // Act
-            
-            // Assert
-
-        
-        }
-
-        [TestCase(null, typeof(NullReferenceException))]
-        public void CannotCreateTShirtConstruct(LawnmowerRepository arg, Type expectedException)
-        {
-            // Arrange Act Assert
-            Assert.Throws(expectedException, () => new LawnmoverController( null, arg));
-        }
-
         [Test]
         public void GetProductTypeTest()
         {
             // Arrange
-            var lr = new LawnmowerRepository();
-            var controller = new LawnmoverController( null,lr);
+
+            var currency = kernel.Get<NormalRate>();
+            var controller = kernel.Get<LawnmoverController>(new ConstructorArgument("currency", currency), new ConstructorArgument("lr",l));
+
             // Act
             string type = controller.GetProductType();
             // Assert
@@ -47,28 +29,64 @@ namespace RefactorMe.Tests
             Assert.AreEqual("Lawnmower", type);
         }
 
-        [TestCase(null, typeof(NullReferenceException))]
-        public void AddWithNullRefExceptionTest(List<Product> ps, Type expectedException)
+
+        [Test]
+        public void CanGetCurrencyConvertedItemsNormal()
         {
             // Arrange
-           
+            var currency = kernel.Get<NormalRate>();
+            var controller = new LawnmoverController(currency, l);
 
-            // Act/Assert
-         //   Assert.Throws(expectedException, () => controller.Add());
+            // Act
+            var products = controller.GetCurrencyConvertedItems();
+
+            // Assert
+
+            CollectionAssert.AllItemsAreNotNull(products);
+            CollectionAssert.AllItemsAreInstancesOfType(products, typeof(Product));
         }
 
         [Test]
-        public void AddTest()
+        public void CanGetCurrencyConvertedItemsEURO()
         {
             // Arrange
-           
+            var currency = kernel.Get<RateEuro>();
+            var controller = new LawnmoverController(currency, l);
 
             // Act
-          
+            var products = controller.GetCurrencyConvertedItems();
 
             // Assert
-            
-           // controller.ps.ToList().ForEach(i => Assert.AreEqual("Lawnmower", i.Type ));
+
+            CollectionAssert.AllItemsAreNotNull(products);
+            CollectionAssert.AllItemsAreInstancesOfType(products, typeof(Product));
+        }
+
+        [Test]
+        public void CanGetCurrencyConvertedItemsUS()
+        {
+            // Arrange
+            var currency = kernel.Get<RateUS>();
+            var controller = new LawnmoverController(currency, l);
+
+            // Act
+            var products = controller.GetCurrencyConvertedItems();
+
+            // Assert
+
+            CollectionAssert.AllItemsAreNotNull(products);
+            CollectionAssert.AllItemsAreInstancesOfType(products, typeof(Product));
+        }
+
+        [Test]
+        public void ShowThrowNullException()
+        {
+            // Arrange
+
+            var controller = new LawnmoverController(null, null);
+           
+            // Act/Assert
+            Assert.Throws<NullReferenceException>(() => controller.GetCurrencyConvertedItems().FirstOrDefault());
         }
     }
 }

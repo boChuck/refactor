@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RefactorMe
+namespace RefactorMe.Tests
 {
-   public class Bindings : NinjectModule
+    class Bindings : NinjectModule
     {
         public override void Load()
         {
@@ -21,6 +21,7 @@ namespace RefactorMe
             Bind<IProductController>().To<LawnmoverController>();
             Bind<IProductController>().To<PhoneCaseController>();
             Bind<IProductController>().To<TShirtController>();
+
 #else
            
 #endif

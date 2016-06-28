@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bindings.cs" />
     <Compile Include="Controller\IProductCollector.cs" />
     <Compile Include="Controller\IProductController.cs" />
     <Compile Include="Controller\ProductCollector.cs" />

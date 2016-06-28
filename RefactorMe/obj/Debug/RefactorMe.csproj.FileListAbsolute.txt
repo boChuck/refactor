@@ -5,12 +5,12 @@ C:\Projects\C#\RefactorMe\bin\Debug\RefactorMe.DontRefactor.pdb
 C:\Projects\C#\RefactorMe\obj\Debug\RefactorMe.csprojResolveAssemblyReference.cache
 C:\Projects\C#\RefactorMe\obj\Debug\RefactorMe.dll
 C:\Projects\C#\RefactorMe\obj\Debug\RefactorMe.pdb
+C:\Projects\refactor\RefactorMe\obj\Debug\RefactorMe.csprojResolveAssemblyReference.cache
 C:\Projects\refactor\RefactorMe\bin\Debug\RefactorMe.dll
 C:\Projects\refactor\RefactorMe\bin\Debug\RefactorMe.pdb
+C:\Projects\refactor\RefactorMe\bin\Debug\Ninject.dll
 C:\Projects\refactor\RefactorMe\bin\Debug\RefactorMe.DontRefactor.dll
 C:\Projects\refactor\RefactorMe\bin\Debug\RefactorMe.DontRefactor.pdb
-C:\Projects\refactor\RefactorMe\obj\Debug\RefactorMe.csprojResolveAssemblyReference.cache
+C:\Projects\refactor\RefactorMe\bin\Debug\Ninject.xml
 C:\Projects\refactor\RefactorMe\obj\Debug\RefactorMe.dll
 C:\Projects\refactor\RefactorMe\obj\Debug\RefactorMe.pdb
-C:\Projects\refactor\RefactorMe\bin\Debug\Ninject.dll
-C:\Projects\refactor\RefactorMe\bin\Debug\Ninject.xml

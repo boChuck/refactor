@@ -24,10 +24,6 @@ namespace RefactorMe
            
         }
 
-        public PhoneCaseController()
-        {
-
-        }
 
         public string GetProductType()
         {

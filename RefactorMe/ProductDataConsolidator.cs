@@ -16,35 +16,15 @@ namespace RefactorMe
 {
     public class ProductDataConsolidator
     {
-        private readonly IProductCollector propCollector;
-
+        readonly IProductCollector _propCollector;
+        
         public ProductDataConsolidator(IProductCollector collector)
         {
-            propCollector = collector;
+            _propCollector = collector;
         }
 
         public List<Product> Get() {
-
-            
-            return propCollector.CollectProducts();
-           
+            return _propCollector.CollectProducts();
         }
-
-        public List<Product> GetInUSDollars() {
-         
-           
-            return propCollector.CollectProducts();
-           
-        }
-
-        public List<Product> GetInEuros() {
-            // set currency on Kernel
-           
-
-            // Get new ProductCollector with Ninject
-            return propCollector.CollectProducts();
-        }
-
-  
     }
 }

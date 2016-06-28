@@ -13,5 +13,10 @@ namespace RefactorMe
         {
             return price * 1;
         }
+
+        public double GetRate()
+        {
+            return 1;
+        }
     }
 }

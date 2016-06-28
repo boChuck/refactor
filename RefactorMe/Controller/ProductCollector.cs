@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RefactorMe.Controller
 {
-    class ProductCollector : IProductCollector
+    public class ProductCollector : IProductCollector
     {
         
         readonly IList<IProductController> _allControllers;
